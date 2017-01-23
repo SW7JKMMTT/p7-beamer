@@ -4,7 +4,7 @@
 %  it can be annotated with the option [notes] or  [notes=only], depending
 %  on whether notes should be included, or should be the only thing in
 %  the document.
-\documentclass[handout]{beamer}
+\documentclass[c]{beamer}
 
 % Setup theme.
 %\input{preamble/simpletheme.tex}
@@ -23,8 +23,8 @@
 \setbeamercolor{headerCol}{fg=black,bg=lightgray}
 \setbeamercolor{bodyCol}{fg=white,bg=gray}
 \setbeamercovered{transparent=20}
-%\setbeameroption{show notes}
-%\setbeameroption{show notes on second screen=right}
+\setbeameroption{show notes}
+\setbeameroption{show notes on second screen=right}
 \newenvironment{bbox}[1]{%
 \begin{beamerboxesrounded}[upper=headerCol,lower=bodyCol,shadow=true]{#1}}{%
 \end{beamerboxesrounded}}
@@ -70,10 +70,17 @@ Danmark
   \begin{multicols}{2}
     \tableofcontents
   \end{multicols}
+  \note[item]{Intro \& Explanation of the overall concept - Thomas}
+  \note[item]{The resulting architecture \& product - Troels}
+  \note[item]{The shortcomings of the product - Jesper}
+  \note[item]{Testing of the product - Mathias}
+  \note[item]{Frontend description \& demo - Kasper}
+  \note[item]{Reflection - Marc}
 \end{frame}
 
 % ==================== SUBJECTS ======================
 % \input{slides/scrum}
+\input{slides/intro}
 \subimport{slides/testing/}{index.tex}
 \subimport{slides/ConsumerClient/}{index.tex}
 

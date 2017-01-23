@@ -1,0 +1,65 @@
+\section{Introduction}
+\author{Thomas}
+\subsection{Our idea}
+
+\begin{frame}{Our idea}
+    \framesubtitle{What led to the system}
+    \begin{itemize}
+        \item<1-> Problem statement
+        \item<2-> Use case
+        \begin{itemize}
+            \item<3-> Lorry drivers
+        \end{itemize}
+        \item<4-> State of the art
+        \begin{itemize}
+            \item<5-> Fleetio
+        \end{itemize}
+    \end{itemize}
+    \note<1-1>[item]{Problem statement: How can a scalable system be designed and implemented, such that geospatial and relevant data can be collected and aggregated in a timely way from a disjoint fleet of vehicles, while maintaining arbitrary possibilities of presenting the data to a given user?}
+    \note<2-3>[item]{Different use cases, to narrow the area of interest: military, taxi, buses, lorry drivers}
+    \note<2-3>[item]{We choose lorry drivers: easy info, had some interesting problems: long hauls etc.}
+    \note<4-5>[item]{sota, to see what was out there}
+    \note<4-5>[item]{found fleetio interesting, for small companies, lacks automation, full OBD advantage}
+
+\end{frame}
+
+\subsection{System overview}
+\begin{frame}{System overview}
+    \framesubtitle{Overview of the system}
+    \begin{figure}
+        \pgfdeclarelayer{background}
+        \pgfsetlayers{background,main}
+        \tikzstyle{bgbox}=[fill=green!20, rounded corners, draw=GoogleGreen, dashed]
+        \center
+        \begin{tikzpicture}[auto, node distance=1.5cm,
+                stage/.style={rectangle, rounded corners, minimum width=1.5cm, minimum height=1cm,text centered, fill=diagramLight, draw, align=center},
+                sharp/.style={rectangle, minimum width=9.0cm, minimum height=1cm,text centered, fill=diagramLight, draw, align=center},
+                server/.style={rectangle, rounded corners, minimum width=1.5cm, minimum height=1cm,text centered, fill=diagramLight, rectangle split, rectangle split parts=2, draw},
+                flow/.style={draw, ->},
+                reverse_flow/.style={draw, <-},
+                double_flow/.style={draw, <->},
+                create/.style={draw, ->},
+                use/.style={draw, dotted, ->}
+            ]
+
+            \node (backend) at (0,0) [stage] {Server};
+            \node (dataprov) [stage, above of=backend] {Data provier};
+            \node (ghost1) [draw=none, above of=dataprov] {};
+            \node (car) [stage, right of=ghost1] {Car};
+            \node (sat) [stage, left of=ghost1] {GPS satellite};
+            \node (front) [stage, below of=backend] {Front--end};
+
+            \draw [double_flow] (backend) -- (dataprov);
+            \draw [double_flow] (dataprov) -| (sat);
+            \draw [double_flow] (dataprov) -| (car);
+            \draw [double_flow] (backend) -- (front);
+        \end{tikzpicture}
+        \caption{Overview of the system.}
+        \label{fig:asdf}
+    \end{figure}
+    \note<1->[item]{\textbf{Server}, the product we made, REST API, db}
+    \note<1->[item]{\textbf{Data provider}, data neutralised}
+    \note<1->[item]{\textbf{Car}, OBD, other sources of data}
+    \note<1->[item]{\textbf{GPS}, position data, time, speed}
+    \note<1->[item]{\textbf{Front--end}, different types, BI system, DW system, GUI of back--end}
+\end{frame}
