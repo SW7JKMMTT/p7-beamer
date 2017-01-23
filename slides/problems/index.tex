@@ -1,0 +1,50 @@
+\section{Limitations}
+
+\begin{frame}{Limitations}
+	\framesubtitle{Deadlines}
+	\begin{itemize}
+		\item{Scalability}
+		\item{Persistence modularity}
+		\item{Large responses}
+		\item{Error handling}
+		\item{Abstraction leak}
+		\item{Concurrency issues}
+	\end{itemize}
+\end{frame}
+
+\subsection{Scale}
+
+\begin{frame}{Scale}
+	\framesubtitle{Philosophy}
+	\textbf{Enable scalability}, without inhibiting velocity,
+	because scalability is useless until you actually need to scale.
+\end{frame}
+
+\begin{frame}{Scale}
+	\framesubtitle{Horizontal scalability}
+	We suspect that we can scale to maximum realistic number of users of our system. Although we haven't done the tests.
+\end{frame}
+
+\begin{frame}{Scale}
+	\framesubtitle{Database}
+	Scalability is nice, but performance is nicer.
+\end{frame}
+
+\subsection{Large responses}
+\begin{frame}{Large responses}
+	Large datasets give rise to large responses.
+\end{frame}
+
+\subsection{Error handling}
+\begin{frame}{Error handling}
+	Errors should be formatted, they are responses too!
+\end{frame}
+
+\subsection{Abstraction leaking}
+\begin{frame}{Abstraction leaking}
+\end{frame}
+
+\subsection{Concurrency}
+\begin{frame}{Concurrency}
+	Databases do not automatically solve concurrency problems, and webservers are multi-threaded.
+\end{frame}
