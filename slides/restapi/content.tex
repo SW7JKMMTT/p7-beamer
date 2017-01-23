@@ -13,27 +13,25 @@
             \end{itemize}
         \end{frame}
     \subsection{Technology Stack}
-        \begin{frame}[t]{Developing the Back--End}\framesubtitle{Technology Stack}
-             \begin{figure}[htb]
-                \centering
-                \includegraphics[width=0.6\textwidth]{dankarkitektur.png}
-            \end{figure}
-        \end{frame}
         \begin{frame}[t]{Developing the Back--End}\framesubtitle{Technologies used in the Back--End}
              \begin{itemize}
                  \item Java 8
                  \begin{itemize}
-                    \item Spring
+                    \item Spring IoC Container
                     \begin{itemize}
-                        \item Dependency Injection
+                        \item Inversion of Control
                     \end{itemize}
-                    \item Hibernate (ORM \& Search)
+                    \item Hibernate ORM
                     \begin{itemize}
-                        \item Database Access
+                        \item Persistence Provider
+                    \end{itemize}
+                    \item Hibernate Search
+                    \begin{itemize}
+                        \item Geospatial Queries
                     \end{itemize}
                     \item Flyway
                     \begin{itemize}
-                        \item Managing schema versions
+                        \item Database Migrations
                     \end{itemize}
                     \item Jackson
                     \begin{itemize}
@@ -41,10 +39,17 @@
                     \end{itemize}
                     \item RESTEasy
                     \begin{itemize}
-                        \item Managing connections
+                        \item Managing Requests
+                        \item Mapping Requests to bean methods
                     \end{itemize}
                  \end{itemize}
              \end{itemize}
+        \end{frame}
+        \begin{frame}[t]{Developing the Back--End}\framesubtitle{Technology Stack}
+             \begin{figure}[htb]
+                \centering
+                \includegraphics[width=0.6\textwidth]{dankarkitektur.png}
+            \end{figure}
         \end{frame}
 
     \subsection{Data}
