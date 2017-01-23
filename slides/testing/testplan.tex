@@ -1,0 +1,22 @@
+%!TEX root = ../../master.tex
+\section{System \& Load Testing}
+\subsection{Testplans}
+
+\begin{frame}{System \& Load Testing}
+        \framesubtitle{Testplans}
+        \begin{itemize}
+            \item<1-> Submitting data
+                \begin{itemize}
+                    \item<1-> Create: users, vehicles, \textbf{routes}
+                    \item<1-> Use these objects to \textbf{simulate usage} of the system, i.e.~vehicles submitting data
+                    \item<1-> Normal load: 1000 routes, 400.000 points
+                    \item<1-> Heavy load: 4000 routes, 1.6 million points
+                \end{itemize}
+            \item<2-> Fetching data
+                \begin{itemize}
+                    \item<2-> Limited by bandwidth
+                    \item<2-> Inexpensive to do lookups
+                    \item<2-> Complex fetching, i.e. geospatial queries, is \textbf{output dependent}
+                \end{itemize}
+        \end{itemize}
+\end{frame}

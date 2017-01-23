@@ -1,0 +1,32 @@
+%!TEX root = ../../master.tex
+\subsection{Results}
+\begin{frame}[fragile]{System \& Load Testing}
+        \framesubtitle{Results --- Submitting data | Requests per second}
+        \only<1| handout:1>{
+            Normal load (1000 routes):
+            \begin{figure}[htb]
+                \centering
+                \resizebox{0.9\textwidth}{!}{%
+                \subimport{graphs/}{reqs_normal.tex}
+                }
+            \end{figure}
+        }
+        \only<2| handout:2>{
+            Heavy load (4000 routes):
+            \begin{figure}[htb]
+                \centering
+                \resizebox{0.9\textwidth}{!}{%
+                \subimport{graphs/}{reqs_heavy.tex}
+                }
+            \end{figure}
+        }
+\end{frame}
+
+\begin{frame}{System \& Load Testing}
+        \framesubtitle{Real World Scenarios}
+        \begin{itemize}
+            \item<1-> Less frequent data submitting
+            \item<1-> More periodic load
+            \item<1-> Handling of unavailability
+        \end{itemize}
+\end{frame}

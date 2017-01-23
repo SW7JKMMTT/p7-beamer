@@ -45,11 +45,11 @@ Danmark
   Software 7\\
   Aalborg University\\
   Denmark
-  
+
   %there must be an empty line above this line - otherwise some unwanted space is added between the university and the country (I do not know why;( )
 }
 
-% Specify a logo on the titlepage (you can specify additional logos an include them in 
+% Specify a logo on the titlepage (you can specify additional logos an include them in
 % institute command below
 \pgfdeclareimage[height=1.5cm]{titlepagelogo}{AAUgraphics/aau_logo_new} % placed on the title page
 %\pgfdeclareimage[height=1.5cm]{titlepagelogo2}{graphics/aau_logo_new} % placed on the title page
@@ -70,15 +70,12 @@ Danmark
   \begin{multicols}{2}
     \tableofcontents
   \end{multicols}
-  \note[item]{Intro \& Scrum of scrums - Thomas}
-  \note[item]{Better code quality - Caspar}
-  \note[item]{REST server - Jesper}
-  \note[item]{REST client, evaluation - Nikolaj}
 \end{frame}
 
 % ==================== SUBJECTS ======================
-\input{slides/scrum}
-\subimport{slides/ConsumerClient/}{index.tex}
+% \input{slides/scrum}
+% \subimport{slides/ConsumerClient/}{index.tex}
+\subimport{slides/testing/}{index.tex}
 
 % ====================================================
 
