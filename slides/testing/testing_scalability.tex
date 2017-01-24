@@ -3,26 +3,22 @@
 
 \begin{frame}{Testing Scalability}
         \framesubtitle{How We Would Test Scalability}
-        Functional, load, version, and device scalability
+        Load scalability
         \begin{itemize}
-            \item<1-> Functional, version, and device scalability
+            \item<1-> Software
                 \begin{itemize}
-                    \item<1-> By \textbf{design}
-                    \item<1-> Ensuring the specifications match the system
+                    \item Perform load test $\rightarrow$ find bottlenecks and hot code $\rightarrow$ Load test and compare
+                    \item \textbf{Optimizing} queries
+                    \item Fine tuning configuration
                 \end{itemize}
-            \item<2-> Load scalability
+            \item<2-> Hardware
                 \begin{itemize}
-                    \item<2-> Software
-                    \begin{itemize}
-                        \item<2-> \textbf{Optimizing} queries
-                        \item<2-> Fine tuning configuration
-                    \end{itemize}
-                    \item<2-> Hardware
-                    \begin{itemize}
-                        \item<2-> \textbf{Horizontal} \& vertical
-                        \item<2-> Limited by the load balancer and database
-                        \item<2-> Ideally linear performance gain
-                    \end{itemize}
+                    \item \textbf{Vertical}: Do load test $\rightarrow$ Restrict resources on server $\rightarrow$ Load test and compare
+                    \item \textbf{Horizontal}: Do load test $\rightarrow$ Scale out! $\rightarrow$ Load test and compare
+                    \item Scaling tests should be done in various different setups
+                    \item Use results to estimate further scaling
+                    \item Horizontal scaling is limited by the load balancer and database setup
+                    \item Ideally linear performance gain
                 \end{itemize}
         \end{itemize}
 \end{frame}
