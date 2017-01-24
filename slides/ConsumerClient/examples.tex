@@ -12,29 +12,43 @@
         \item<1-> Informative
         \begin{itemize}
             \item<3-> Pizza delivery
-            \item<3-> Customer notifications of status and time estimates
-            \item<3-> Internal overview of delivery drivers
+            \begin{itemize}
+                \item<3-> Customer notifications of status and time estimates
+                \item<3-> Internal overview of delivery drivers
+            \end{itemize}
             \item<4-> Providing taxi
-            \item<4-> Helps locating the nearest taxis
-            \item<4-> Providing time to pickup estimates
+            \begin{itemize}
+                \item<4-> Helps locating the nearest taxis
+                \item<4-> Providing time to pick--up estimates
+            \end{itemize}
         \end{itemize}
 
-        % \item<1-> Data Warehouse
-        % \begin{itemize}
-        %     \item<5-> Providing taxi
-        %     \item<5-> Helps locating the nearest taxis
-        %     \item<5-> Providing time to pickup estimates
-        % \end{itemize}
+        \item<1-> Data Warehouse
+        \begin{itemize}
+            \item<5-> Providing taxi
+            \item<5-> Helps locating the nearest taxis
+            \item<5-> Providing time to pick--up estimates
+        \end{itemize}
     \end{itemize}
 
     \note<1-1>[item]{Visual}
     \note<1-1>[item]{Informative}
-    %\note<2-2>[item]{}
-    \note<3-3>[item]{notifiakationer, ex pizza mand, hvor lang tid det vil tage, de har internt sat waypoints, om 5 min}
-    \note<3-3>[item]{pizza manden kan se hvor hans biler}
-    \note<4-4>[item]{Se hvor taxaer er henne}
-    \note<4-4>[item]{Data warehouse -> analyze}
-    \note<4-4>[item]{business intelligence}
-    %\note<5-5>[item]{}
+    \note<1-1>[item]{Data Warehouse}
+
+    \note<2-2>[item]{Public transport: Old, stations transmit location, allows for real--time tracking.}
+    \note<2-2>[item]{Trucks: Like our solution, see route, delays, foresee road block}
+
+    \note<3-3>[item]{Pizza delivery:}
+    \note<3-3>[item]{Allows for pre--planning of routes}
+    \note<3-3>[item]{Give customers notifications about status, estimates and potential delays}
+    \note<3-3>[item]{Allows for owner to see status of delivery guy}
+
+    \note<4-4>[item]{Providing taxi:}
+    \note<4-4>[item]{Helps the company locate the nearest free taxi}
+    \note<4-4>[item]{By planning routes from assigned taxi to customer a more precise TTA can be given}
+    \note<4-4>[item]{Easier for the company to see when a taxi would be available again}
+
+    \note<5-5>[item]{Data warehouse -> analyze}
+    \note<5-5>[item]{business intelligence}
 \end{frame}
 
