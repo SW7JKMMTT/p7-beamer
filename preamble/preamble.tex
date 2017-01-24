@@ -275,15 +275,16 @@
 \usepackage{tabularx}
 \newcommand{\tblgrpsep}{\noalign{\vspace{.75em}}}
 
-
+\definecolor{mintedbackground}{rgb}{0.95,0.95,0.95}
 \newmintedfile[jsoncode]{json}{
 %  fontfamily=tt,
-%  linenos=false,
+linenos=true,
+bgcolor=mintedbackground,
 %  numbersep=5pt,
 %  gobble=0,
 %  frame=leftline,
-%  framerule=1.4pt,
-%  framesep=2mm,
+% framerule=1.4pt,
+%  framesep=10mm,
 %  funcnamehighlighting=true,
 %  tabsize=4,
 %  obeytabs=false,
@@ -292,5 +293,6 @@
 %  showspaces=false,
 %  showtabs =false,
 %  texcl=false,
+xleftmargin=2.0em,
 frame=leftline, framesep=1mm,  fontsize=\footnotesize, baselinestretch=1.1, autogobble
 }
