@@ -7,18 +7,18 @@
         \begin{itemize}
             \item<1-> Software
                 \begin{itemize}
-                    \item Perform load test $\rightarrow$ find bottlenecks and hot code $\rightarrow$ Load test and compare
+                    \item Load test $\rightarrow$ Optimize hot code and bottlenecks $\rightarrow$ Load test and compare
                     \item \textbf{Optimizing} queries
                     \item Fine tuning configuration
                 \end{itemize}
             \item<2-> Hardware
                 \begin{itemize}
-                    \item \textbf{Vertical}: Do load test $\rightarrow$ Restrict resources on server $\rightarrow$ Load test and compare
-                    \item \textbf{Horizontal}: Do load test $\rightarrow$ Scale out! $\rightarrow$ Load test and compare
-                    \item Scaling tests should be done in various different setups
-                    \item Use results to estimate further scaling
-                    \item Horizontal scaling is limited by the load balancer and database setup
-                    \item Ideally linear performance gain
+                    \item \textbf{Vertical}: Load test $\rightarrow$ Restrict resources on server $\rightarrow$ Load test and compare
+                    \item \textbf{Horizontal}: Load test $\rightarrow$ Scale out! $\rightarrow$ Load test and compare
+                    \item Test across different setups
+                    \item Estimate further scaling
+                    \item Horizontal scaling adds complexity
+                    \item Ideally, linear performance gain
                 \end{itemize}
         \end{itemize}
 \end{frame}
