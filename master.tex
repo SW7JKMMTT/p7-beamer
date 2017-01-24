@@ -58,7 +58,11 @@ Danmark
   %  \hspace{1cm}\pgfuseimage{titlepagelogo2}
 }
 
+\usepackage{fontspec}
+\setsansfont{Roboto}
 
+\let\oldtextbf\textbf
+\renewcommand{\textbf}[1]{\textcolor{beamer@headercolor}{\oldtextbf{#1}}}
 \begin{document}
 
 {\aauwavesbg
