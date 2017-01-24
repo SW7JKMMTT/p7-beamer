@@ -1,6 +1,6 @@
 \author{Marc4Prez}
 \section{Epilogue}
-    \begin{frame}[t]{Epilogue}\framesubtitle{Content Overview}
+    \begin{frame}{Epilogue}\framesubtitle{Content Overview}
         \begin{itemize}
             \item Major Choices
                 %Discuss the most impactful choices during development
@@ -21,7 +21,7 @@
                 \begin{itemize}
                     \item User Interface(enunciate)
                     \item Benefits of the Project Structure 
-                    \item Scalability
+                    \end{itemize}m Scalability
                 \end{itemize}
             \item Future Work
             \begin{itemize}
@@ -33,7 +33,7 @@
     \end{frame}
 
     \subsection{Major Choices}
-    \begin{frame}[t]{Major Choices}\framesubtitle{Work Partioning}    
+    \begin{frame}{Major Choices}\framesubtitle{Work Partioning}    
         \begin{itemize}
             \item Focus Group
             \begin{itemize}
@@ -56,31 +56,33 @@
 
     \subsection{Project Outcome}
     %Maybe add a conclusion segment?? What to sum up in the conclusion would rely on covereage by the others, is there even value in this?
-    \begin{frame}[t]{Project Outcome}\framesubtitle{}   
+    \begin{frame}{Project Outcome}\framesubtitle{}   
         \begin{itemize}
             \item Enunciate
             %Graphics/Show example??
             %Needs graphics, show and explain why this works as a UI for developers(can be related to IOT concept if done correct)
             \item Rewards(title in progress)
             %The rewards acquired from our development process concepts, test, Front-End Prototype, Emulating data provider over developing one
-            %How much of this is covered by Sass?
+            %Tests helps us acquire code quality and the regression tests makes it easy to identify problems for further development.
+            %Our load tests have given us some performance numbers, these numbers can be used to evaluate scalability for a client, laying the groundwork for a scalability analysis.
+            %The few faults that exists we know why they exist because of rigerous testing(Jesper mentioned some), and aside from those we are confident that the system works, as a result of our tests running successfully.
             \item Scalability
-            %Follow up on Jesper i suppose? content will depend on his covereage
-            %Perhaps simply focus on scalability measures not related to Load Scalability if Jesper focuses on that - that way it also fits the theme of this segment
+            %Perhaps simply focus on scalability measures not related to Load Scalability - that way it also fits the theme of this segment
             %Opsummer Sass quick, evaluate - would´be evaluated upon stakeholder criteria which we do not have.
             %Framework for func scale
         \end{itemize}
     \end{frame}
 
     \subsection{Future Work}
-    \begin{frame}[t]{Future Work}\framesubtitle{Future Work for the REST API}
+    \begin{frame}{Future Work}\framesubtitle{Future Work for the REST API}
         \begin{itemize}
             \item Server \& API Improvements
-            %Content will depend on Jespers coverage of thsi
             %Additional Software Scalability(what we simply thought of as performance)
             \begin{itemize}
-                    \item Sharding. %DAO, XML config, Hibernate
+                    \item Adative time between requests
+                    %adaptive requests --- time between requests per driver based on server traffic.
                     \item Long polling.
+                    \item Sharding. %DAO, XML config, Hibernate
                     \item Expand on Services
             \end{itemize}
             \item Additional Development
