@@ -58,107 +58,36 @@
                 create/.style={draw, ->},
                 use/.style={draw, dotted, ->}
             ]
-
-            \node (backend) at (0,0) [draw=none] {};
-
-            \node (web2) [draw=none, left=0.3cm of backend] {};
-
-            \node (dataprov) [stage, left=0.3cm of web2] {Producer \\ client};
-            \node (ghost1) [draw=none, left=0.7cm of dataprov] {};
-            \node (car) [stage, above=0.4cm of ghost1] {Car};
-            \node (sat) [stage, below=0.4cm of ghost1] {GPS \\ satellite};
-
-            \node (web1) [draw=none, right=0.3cm of backend] {};
-
-            \node (front) [draw=none, right=0.3cm of web1] {};
-
-            \draw [double_flow] (dataprov) -| (sat);
-            \draw [double_flow] (dataprov) -| (car);
-        \end{tikzpicture}
-    \end{figure}
-    \note<1->[item]{\textbf{Producer client}, collection of data, different data sources, car, gps, camera etc.}
-    \note<1->[item]{\textbf{Car}, OBD, other sources of data}
-    \note<1->[item]{\textbf{GPS}, position data, time, speed}
-\end{frame}
-
-\begin{frame}{System overview}
-    \framesubtitle{Overview of the system}
-    \begin{figure}
-        \pgfdeclarelayer{background}
-        \pgfsetlayers{background,main}
-        \tikzstyle{bgbox}=[fill=green!20, rounded corners, draw=GoogleGreen, dashed]
-        \center
-        \begin{tikzpicture}[auto, node distance=1.5cm,
-                stage/.style={rectangle, rounded corners, minimum width=1.5cm, minimum height=1cm,text centered, fill=diagramLight, draw, align=center},
-                sharp/.style={rectangle, minimum width=9.0cm, minimum height=1cm,text centered, fill=diagramLight, draw, align=center},
-                server/.style={rectangle, rounded corners, minimum width=1.5cm, minimum height=1cm,text centered, fill=diagramLight, rectangle split, rectangle split parts=2, draw},
-                flow/.style={draw, ->},
-                reverse_flow/.style={draw, <-},
-                double_flow/.style={draw, <->},
-                create/.style={draw, ->},
-                use/.style={draw, dotted, ->}
-            ]
-
-            \node (backend) at (0,0) [draw=none] {};
-
-            \node (web2) [draw=none, left=0.3cm of backend] {};
-
-            \node (dataprov) [draw=none, left=0.3cm of web2] {};
-            \node (ghost1) [draw=none, left=0.7cm of dataprov] {};
-            \node (car) [draw=none, above=0.4cm of ghost1] {};
-            \node (sat) [draw=none, below=0.4cm of ghost1] {};
-
-            \node (web1) [draw=none, right=0.3cm of backend] {};
-
-            \node (front) [stage, right=0.3cm of web1] {Consumer \\ client};
-        \end{tikzpicture}
-    \end{figure}
-    \note<1->[item]{\textbf{Consumer client}, different types, BI system, DW system, GUI of back--end, what needs the data}
-\end{frame}
-
-\begin{frame}{System overview}
-    \framesubtitle{Overview of the system}
-    \begin{figure}
-        \pgfdeclarelayer{background}
-        \pgfsetlayers{background,main}
-        \tikzstyle{bgbox}=[fill=green!20, rounded corners, draw=GoogleGreen, dashed]
-        \center
-        \begin{tikzpicture}[auto, node distance=1.5cm,
-                stage/.style={rectangle, rounded corners, minimum width=1.5cm, minimum height=1cm,text centered, fill=diagramLight, draw, align=center},
-                sharp/.style={rectangle, minimum width=9.0cm, minimum height=1cm,text centered, fill=diagramLight, draw, align=center},
-                server/.style={rectangle, rounded corners, minimum width=1.5cm, minimum height=1cm,text centered, fill=diagramLight, rectangle split, rectangle split parts=2, draw},
-                flow/.style={draw, ->},
-                reverse_flow/.style={draw, <-},
-                double_flow/.style={draw, <->},
-                create/.style={draw, ->},
-                use/.style={draw, dotted, ->}
-            ]
             %, line width=0.5mm, draw=black
-            \node (backend) at (0,0) [stage] {Back--end};
+            \node (backend) at (0,0) [stage, visible on=<3->] {Back--end};
 
-            \node (web2) [draw, cloud, cloud puffs=12, cloud ignores aspect, minimum width=2.5em, minimum height=1.5em,fill=blue!20, left=0.3cm of backend] {};
+            \node (web2) [draw, visible on=<3->, cloud, cloud puffs=12, cloud ignores aspect, minimum width=0.8cm, minimum height=0.5cm,fill=blue!20, left=0.2cm of backend] {};
 
-            \node (dataprov) [stage, left=0.3cm of web2] {Producer \\ client};
-            \node (ghost1) [draw=none, left=0.7cm of dataprov] {};
-            \node (car) [stage, above=0.4cm of ghost1] {Car};
-            \node (sat) [stage, below=0.4cm of ghost1] {GPS \\ satellite};
+            \node (dataprov) [stage, visible on=<1->, left=0.2cm of web2] {Producer \\ client};
+            \node (ghost1) [draw=none, visible on=<1->, left=0.7cm of dataprov] {};
+            \node (car) [stage, visible on=<1->, above=0.4cm of ghost1] {Car};
+            \node (sat) [stage, visible on=<1->, below=0.4cm of ghost1] {GPS \\ satellite};
 
-            \node (web1) [draw, cloud, cloud puffs=12, cloud ignores aspect, minimum width=2.5em, minimum height=1.5em,fill=blue!20, right=0.3cm of backend] {};
+            \node (web1) [draw, visible on=<3->, cloud, cloud puffs=12, cloud ignores aspect, minimum width=0.8cm, minimum height=0.5cm,fill=blue!20, right=0.2cm of backend] {};
 
-            \node (front) [stage, right=0.3cm of web1] {Consumer \\ client};
+            \node (front) [stage, visible on=<2->, right=0.2cm of web1] {Consumer \\ client};
 
-            \draw [double_flow] (backend) -- (web2);
-            \draw [double_flow] (web2) -- (dataprov);
+            \draw [double_flow, visible on=<3->] (backend) -- (web2);
+            \draw [double_flow, visible on=<3->] (web2) -- (dataprov);
 
-            \draw [double_flow] (dataprov) -| (sat);
-            \draw [double_flow] (dataprov) -| (car);
+            \draw [double_flow, visible on=<1->] (dataprov) -| (sat);
+            \draw [double_flow, visible on=<1->] (dataprov) -| (car);
 
-            \draw [double_flow] (backend) -- (web1);
-            \draw [double_flow] (web1) -- (front);
+            \draw [double_flow, visible on=<3->] (backend) -- (web1);
+            \draw [double_flow, visible on=<3->] (web1) -- (front);
         \end{tikzpicture}
     \end{figure}
-    \note<1->[item]{\textbf{Back--end}, combine producer and consumer, our focus, REST API, db}
-    \note<1->[item]{normalise data at producer client, back--end don't about data source}
-    \note<1->[item]{neutral data, different devices: tablets, web, etc.}
-    \note<1->[item]{Troels talk more about the back--end.}
+    \note<1-1>[item]{\textbf{Producer client}, collection of data, different data sources, car, gps, camera etc.}
+    \note<1-1>[item]{\textbf{Car}, OBD, other sources of data}
+    \note<1-1>[item]{\textbf{GPS}, position data, time, speed}   
+    \note<2-2>[item]{\textbf{Consumer client}, different types, BI system, DW system, GUI of back--end, what needs the data}
+    \note<3-3>[item]{\textbf{Back--end}, combine producer and consumer, our focus, REST API, db}
+    \note<3-3>[item]{normalise data at producer client, back--end don't about data source}
+    \note<3-3>[item]{neutral data, different devices: tablets, web, etc.}
+    \note<3-3>[item]{Troels talk more about the back--end.}
 \end{frame}
