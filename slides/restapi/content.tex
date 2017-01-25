@@ -5,12 +5,14 @@
             \begin{itemize}
                 \item A REST--API
                 \begin{itemize}
-                    \item 6 services
-                    \item 11 endpoints
+                    \item Domain Model Layer
+                    \item Persistence Layer
+                    \item Service Layer
                     \item 156 Automatic Tests
-                    \item Data Persistence via Database
                 \end{itemize}
             \end{itemize}
+            \note{We choose to make a REST API ...}
+            \note[item]{6 services, 11 endpoints}
         \end{frame}
     \subsection{Technology Stack}
         \begin{frame}{Developing the Back--End}\framesubtitle{Technologies used in the Back--End}
@@ -39,11 +41,15 @@
                     \end{itemize}
                     \item RESTEasy
                     \begin{itemize}
-                        \item Managing Requests
                         \item Mapping Requests to bean methods
                     \end{itemize}
                  \end{itemize}
              \end{itemize}
+             \note[item]{Not Java EE (since it's a version behind)}
+             \note[item]{Mature technologies in Java}
+             \note[item]{Choosen with scalability in mind.}
+             \note[item]{Spring BeanFactory Container}
+             \note[item]{Spring manages the lifecycle of object and uses dependency injection}
         \end{frame}
         \begin{frame}{Developing the Back--End}\framesubtitle{Technology Stack}
              \begin{figure}
@@ -79,36 +85,42 @@
                     \draw [double_flow] (ourcode.west) -| (lucene);
                 \end{tikzpicture}
             \end{figure}
+            \note[item]{Our system is more parts!}
+            \note[item]{Previously we used MongoDB instead of PostgreSQL}
         \end{frame}
 
     \subsection{Data}
         \begin{frame}[t]{Developing the Back--End}\framesubtitle{The Model}
-            \only<1> {
+            \only<1|handout:1> {
             \begin{figure}[htb]
                 \centering
                 \includegraphics[width=0.60\textwidth, trim={4.2cm 6.0cm 2.5cm 3.5cm},clip]{class.pdf}
             \end{figure}
+            \note<1>[item]{Designed with expandability in mind}
             \note<1>[item]{Driver as ``has a''}
             \note<1>[item]{MiscData on Route}
             }
 
-            \only<2> {
+            \only<2|handout:2> {
             Driver as ``has a'':
             \begin{figure}[htb]
                 \centering
                 \includegraphics[width=0.85\textwidth, trim={5cm 13.8cm 0cm 3.5cm},clip]{class.pdf}
             \end{figure}
-            \note<2>[item]{Expandability to other ``roles'' than driver, i.e. Administrator}
+            \note<2>[item]{Expandability to other ``roles'' than driver, i.e. manager}
+            \note<2>[item]{Role pattern (is-a)}
             }
 
-            \only<3> {
+            \only<3|handout:3> {
             MiscData on Route:
             \begin{figure}[htb]
                 \centering
                 \includegraphics[width=0.85\textwidth, trim={4.2cm 6.0cm 2.5cm 11cm},clip]{class.pdf}
             \end{figure}
+            \note<3>[item]{MiscData indirectly to vehicle currently}
             \note<3>[item]{Context of use.}
-            \note<3>[item]{MiscData <-> MaintenceData <-> Vehicle}
+            \note<3>[item]{MiscData <-> Maintence <-> Vehicle}
+            \note<3>[item]{Maintence: Vehicle, Time, details, cost etc. AND MiscData}
             }
         \end{frame}
 
@@ -148,6 +160,7 @@
             \bigskip
             Response:
             \jsoncode{slides/restapi/res1.json}
+            \note[item]{Creating an object returns the object created.}
         \end{frame}
 
         \begin{frame}{Developing the Back--End}\framesubtitle{A Spatial Query}
@@ -155,5 +168,7 @@
             \\
             Response:
             \jsoncode{slides/restapi/res2.json}
-            \note<1>[item]{Query parameter}
+            \note[item]{Query parameter}
+            \note[item]{Works by finding waypoints, and returns their routes.}
+            \note[item]{Pagination}
         \end{frame}
