@@ -7,7 +7,7 @@
 		\item{Persistence modularity}
 		\item{Large responses}
 		\item{Error handling}
-		\item{Abstraction leak}
+		\item{Polling}
 		\item{Concurrency issues}
 	\end{itemize}
 \end{frame}
@@ -38,7 +38,7 @@
 
 \begin{frame}{Limitations}
 	\framesubtitle{Horizontal scalability}
-	We suspect that we can scale to \textbf{maximum realistic} number of users of our system. Although we haven't done the exercise.
+	We suspect that we can scale to a \textbf{maximum realistic} number of users of our system. Although we haven't done the tested the claim.
 \end{frame}
 
 \begin{frame}{Limitations}
@@ -62,7 +62,7 @@
 	\framesubtitle{Large responses}
 	\begin{itemize}
 		\item Large datasets give rise to \textbf{large responses}
-		\item Pagination
+		\item Solvable by \textbf{pagination}
 		\item Missing \textbf{elegant abstraction}
 	\end{itemize}
 \end{frame}
@@ -82,12 +82,57 @@
 	Errors should be formatted, they are responses too!
 \end{frame}
 
-\subsection{Abstraction leaking}
+\subsection{Polling}
 \begin{frame}{Limitations}
 	\framesubtitle{Long polling}
+	\begin{itemize}
+		\item \textbf{Active} polling
+			\begin{itemize}
+				\item Uses a lot of bandwidth
+				\item Increasing poll interval leads to poor \textbf{immediacy}
+			\end{itemize}
+		\item \textbf{Long} polling
+			\begin{itemize}
+				\item Better \textbf{immediacy}
+				\item Better \textbf{performance}
+				\item Less \textbf{bandwidth} utilization
+			\end{itemize}
+	\end{itemize}
 \end{frame}
 
+\begin{frame}{Limitations}
+	\framesubtitle{Long polling}
+	Some data \textbf{naturally} propagates from the server to the client, rather than the inverse.
+\end{frame}
+
+\tikzset{
+    invisible/.style={opacity=0.1},
+    visible on/.style={alt=#1{}{invisible}},
+    alt/.code args={<#1>#2#3}{%
+      \alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}} % \pgfkeysalso doesn't change the path
+    },
+  }
+
 \subsection{Concurrency}
+\begin{frame}{Limitations}
+	\framesubtitle{Concurrency}
+	\begin{center}
+	\begin{tikzpicture}[->,>=stealth',auto,node distance=3cm,
+		thick,main node/.style={circle,draw}]
+
+		\node[main node] (1) {Request 1};
+		\node[main node] (2) [right of=1] {Server};
+		\node[main node] (3) [right of=2] {Request 2};
+
+		\path[every node/.style={font=\sffamily\small}]
+			(1) edge[bend right, visible on=<1->] node [right] {} (2)
+			(3) edge[bend left, visible on=<1->] node [right] {} (2)
+			(2) edge[bend right, visible on=<2->] node [right] {} (1)
+			(2) edge[bend left, red, visible on=<3->] node [right] {} (3);
+	\end{tikzpicture}
+	\end{center}
+\end{frame}
+
 \begin{frame}{Limitations}
 	\framesubtitle{Concurrency}
 	Databases do not automatically solve concurrency problems, and webservers are multi-threaded.
