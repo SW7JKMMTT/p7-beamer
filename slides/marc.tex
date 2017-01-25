@@ -67,26 +67,29 @@
     \subsection{Project Outcome}
     %Maybe add a conclusion segment?? What to sum up in the conclusion would rely on covereage by the others, is there even value in this?
     \begin{frame}{Epilogue}\framesubtitle{Project Outcome}   
-        \begin{itemize}
-            \item<1-> Enunciate
+            \only<1>{
+            Enunciate
             \begin{figure}[h]
                 \centering
                 \includegraphics[scale=0.2]{images/enunciate.png}
                 \caption{API documentation for a GET request.}
-            \end{figure}
+            \end{figure}}
             %Graphics/Show example??
             %Needs graphics, show and explain why this works as a UI for developers(can be related to IOT concept if done correct)
-            \item<2-> Benefits of Development Strategy
+            \only<2>{
+        \begin{itemize}
+            \item Benefits of Development Strategy
             \begin{itemize}
                 \item Testing
                 \item Consumer Client Prototype
                 \item Emulating data provider
             \end{itemize}
+            
             %The rewards acquired from our development process concepts, test, Front-End Prototype, Emulating data provider over developing one
             %Tests helps us acquire code quality and the regression tests makes it easy to identify problems for further development.
             %Our load tests have given us some performance numbers, these numbers can be used to evaluate scalability for a client, laying the groundwork for a scalability analysis.
             %The few faults that exists we know why they exist because of rigerous testing(Jesper mentioned some), and aside from those we are confident that the system works, as a result of our tests running successfully.
-            \item<3-> Scalability
+            \item Scalability
             \begin{itemize}
                 \item Scalability Testing
                 %didnt do this, requires stakeholder
@@ -97,6 +100,7 @@
             %Opsummer Sass quick, evaluate - would´be evaluated upon stakeholder criteria which we do not have.
             %Framework for func scale
         \end{itemize}
+        }
         \note<1-1>[item]{show stuff}
         \note<2-2>[item]{Testing acquired: \textbf{Code quality}, \textbf{Regression test}, \textbf{Reliability} useable for alter development -- refer to functional scale, we know of the few errors that exist}
         \note<2-2>[item]{Prototype gave us \textbf{User POV}, \textbf{discount stakeholder}, showing that our UI and API documentation works}
